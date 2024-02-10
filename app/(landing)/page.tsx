@@ -17,7 +17,7 @@ function DemoContainer({
   return (
     <div
       className={cn(
-        "flex items-center justify-center [&>div]:w-full border border-red-950 lg:px-60 md:px-24 py-8",
+        "flex items-center justify-center [&>div]:w-full lg:px-60 md:px-24 py-8",
         className
       )}
       {...props}

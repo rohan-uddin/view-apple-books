@@ -12,7 +12,7 @@ const DownloadButton = () => {
         // Create a link element and trigger the download
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = 'downloadedFile.zip'; // Specify the desired file name
+        link.download = 'bookHighlights.zip'; // Specify the desired file name
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

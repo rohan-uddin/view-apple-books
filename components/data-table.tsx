@@ -85,17 +85,17 @@ export function DataTable<TData, TValue>({
 
     toast({
       title: "Export complete.",
-      description: `${selectedRowData.length} choice(s) have been submitted.`
+      description: `${selectedRowData.length} choice(s) have been submitted.`,
+      action: (
+        <DownloadButton />
+      ),
     });
     return selectedRowData;
   }
 
   return (
     <div className='space-y-4'>
-      <div className="space-x-4">
-        <Button onClick={() => {getSelectedRowData(table)}}>Submit</Button>
-        <DownloadButton />
-      </div>
+      <Button onClick={() => {getSelectedRowData(table)}}>Submit</Button>
       <div className="rounded-md border">
         <Table>
           <TableHeader>
