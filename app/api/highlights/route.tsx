@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 // import * as server from "@/components/providers/server";
 // import * as ibooks from "@/components/providers/ibooks";
 import ibooks from "@/components/providers/ibooks";
+import { join } from 'path';
 const fs = require('fs');
 // const bodyParser = require('body-parser');
 const currentDate = new Date();
@@ -68,7 +69,10 @@ function sendAnnotations(bookID: string, bookTitle: string, bookAuthor: string) 
         if (element.note) {markdownOut += `\t\t- ${element.note}\n`}
     });
 
-    const path = 'exports'
+    // const path = "exports";
+    const path = join(__dirname, '..', '..', '..','..', '..', 'exports');
+    console.log("export path", path);
+    // const filePath = join(__dirname, '..', '..', '..','..', '..', 'exports', file);
     if (fs.existsSync(path)) {
       console.log('Folder exists!');
       fs.writeFile(`exports/${bookTitle} (highlights).md`, markdownOut, (err: any) => {
