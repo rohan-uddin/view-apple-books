@@ -24,7 +24,7 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ![first attempt](image.png)
 
-As of Friday, Feb 9th, 2024 — this is what the UI should look like. 
+As of Friday, Feb 9th, 2024 — this is what the UI should look like.
 
 ## Deploy on Vercel
 

@@ -33,6 +33,7 @@ export function DataTable<TData, TValue>({
   columns,
   data,
 }: DataTableProps<TData, TValue>) {
+
   const table = useReactTable({
     data,
     columns,
@@ -57,6 +58,30 @@ export function DataTable<TData, TValue>({
       selectedRowData.push(row.original);
     }
     console.log("selectedRowData", selectedRowData);
+
+    // Send the data to the server
+    const handlePostData = async () => {
+      try {
+        const response = await fetch('/api/highlights', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(selectedRowData),
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          console.log(result);
+        } else {
+          console.error('Failed to post data');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    };
+    handlePostData();
+
     toast({
       title: "Export complete.",
       description: `${selectedRowData.length} choice(s) have been submitted.`

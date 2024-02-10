@@ -54,6 +54,26 @@ export async function GET(request: NextRequest) {
 }
 
 /**
+ * POST REQUEST
+ */
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    console.log("FROM THE SERVER: ", body)
+    return NextResponse.json({
+      selected_books: body
+    });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({
+      error: "bookData failed to load."
+    });
+  }
+}
+
+
+
+/**
  * HELPER FUNCTIONS
  */
 function formatBookJSON(rawTableData: { bookID: any; title: any; author: any; }) {
@@ -64,31 +84,3 @@ function formatBookJSON(rawTableData: { bookID: any; title: any; author: any; })
     checked: false,
   };
 }
-
-// BACKUP:
-
-// OLD VERSION
-// const finalTITLES = getBookTitles().then((bookTitles) => {
-//   // filter those names that have a bookID of length 32
-//   console.log("I AM INSIDE finalTITLES")
-//   const filteredBookTitles = bookTitles!.filter((book) => book.bookID.length === 32);
-//   return filteredBookTitles;
-// });
-
-
-// export function GET(request: NextRequest) {
-
-//   const finalTITLES = getBookTitles().then((bookTitles) => {
-//     console.log("I AM INSIDE finalTITLES")
-//     console.log(bookTitles!.slice(22,27))
-//     return bookTitles;
-//   }); 
-
-//   console.log("finalTITLES - outside", finalTITLES); // this is a pending promise
-
-//   return NextResponse.json({
-//     title: "Welcome to your new Next.js app!",
-//     description: "Get started by editing app/page.tsx",
-//     book_titles: finalTITLES
-//   });
-// }
