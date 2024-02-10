@@ -62,7 +62,7 @@ function sendAnnotations(bookID: string, bookTitle: string, bookAuthor: string) 
     markdownOut += `tags:: \n\n`
     markdownOut += `- Highlights synced manually [[${formatDate(currentDate)}]]\n`
 
-
+    // TODO: you can sort highlights by element.createdOn
     result.forEach((element:HighlightData) => {
         markdownOut += `\t- ${element.selectedText}\n`
         if (element.note) {markdownOut += `\t\t- ${element.note}\n`}

@@ -51,10 +51,10 @@ function formatAnnotation(bookData, rawAnnData) {
 }
 
 ibooks.getBooks = async function getBooks() {
-  console.log('getBooks is now TRIGGERED!');
+  // console.log('getBooks is now TRIGGERED!');
   const booksPath = await findBooksDbPath();
-  console.log('booksPath:', booksPath)
-  console.log('here now!')
+  // console.log('booksPath:', booksPath)
+  // console.log('here now!')
   const book_db = new sqlite3.Database(booksPath, sqlite3.OPEN_READONLY, utils.handleConnect);
   return new Promise((resolve, reject) => {
     let books = {};

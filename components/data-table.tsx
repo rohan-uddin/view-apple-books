@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useToast } from "@/components/ui/use-toast"
 import { Button } from "@/components/ui/button"
+import DownloadButton from '@/app/(landing)/_components/DownloadBtn'
 
 import {
   ColumnDef,
@@ -91,7 +92,10 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className='space-y-4'>
-      <Button onClick={() => {getSelectedRowData(table)}}>Submit</Button>
+      <div className="space-x-4">
+        <Button onClick={() => {getSelectedRowData(table)}}>Submit</Button>
+        <DownloadButton />
+      </div>
       <div className="rounded-md border">
         <Table>
           <TableHeader>
